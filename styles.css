@@ -35,7 +35,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .container {
+    .container img {
       padding: inherit 1rem;
     }
   }
