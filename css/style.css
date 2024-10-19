@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rethink Sans", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #F5F5F7;
+    color: #2A2834;
+}
+
+.container {
+    max-width: 80%;
+    margin: 10% auto 0 auto;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+blockquote {
+    margin: 2rem 0;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    border-left: solid 2px #2A2834;
+    padding-left: 1rem;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+a {
+    color: #2A2834;
+}
+
+a:hover {
+    color: #FA3177;
+}
+
+@media only screen and (min-width: 1024px) {
+
+.container {
+    max-width: 35%;
+}
+    
+}
+
+@media only screen and (min-width: 1441px) {
+
+    .container {
+        margin: 5% auto 0 auto;
+        max-width: 30%;
+    }
+        
+    }
