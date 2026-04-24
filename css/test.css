@@ -1,0 +1,380 @@
+/* ─── Reset ────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ─── Tokens ────────────────────────────────────────────────────────────────── */
+:root {
+    --cream:      #EDE8D0;
+    --navy:       #0F1128;
+    --yellow:     #F5C518;
+    --green:      #3A7D44;
+    --red:        #D42B2B;
+    --black:      #000000;
+    --white:      #FFFFFF;
+
+    --left-bar:   8px;
+    --sidebar:    58px;
+    --nav-right:  80px;   /* sidebar + gap */
+
+    /* Layout: content starts at ~17.7% from left (matching Figma) */
+    --content-left:  17.7vw;
+    /* Body-text indent is an additional ~10.8vw beyond content-left */
+    --body-indent:   10.8vw;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cream);
+    font-family: 'Poppins', sans-serif;
+    color: var(--black);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ─── Left bar ──────────────────────────────────────────────────────────────── */
+.left-bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--left-bar);
+    background: var(--navy);
+    z-index: 200;
+}
+
+/* ─── Right sidebar ─────────────────────────────────────────────────────────── */
+.right-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--sidebar);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    background: var(--cream);
+    border-left: 1.5px solid rgba(15, 17, 40, 0.12);
+}
+
+.brand-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--navy);
+    text-transform: uppercase;
+}
+
+/* ─── Top navigation ────────────────────────────────────────────────────────── */
+.top-nav {
+    position: fixed;
+    top: 28px;
+    right: var(--nav-right);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    z-index: 201;
+    color: var(--black);
+}
+
+.nav-link {
+    transition: opacity 0.15s;
+}
+
+.nav-active {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.nav-link:hover {
+    opacity: 0.6;
+}
+
+.nav-divider {
+    font-weight: 900;
+}
+
+/* ─── Main content ──────────────────────────────────────────────────────────── */
+main {
+    padding-left: var(--content-left);
+    padding-right: calc(var(--sidebar) + 5vw);
+    padding-top: 56px;
+    padding-bottom: 120px;
+}
+
+/* ─── Back arrow ────────────────────────────────────────────────────────────── */
+.back-link {
+    display: inline-block;
+    margin-bottom: 28px;
+    transition: transform 0.2s ease;
+}
+
+.back-link:hover {
+    transform: translateX(-4px);
+}
+
+.back-arrow {
+    display: block;
+    width: 90px;
+    height: auto;
+}
+
+/* ─── Headline ──────────────────────────────────────────────────────────────── */
+.headline {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 1.1;
+    color: var(--black);
+    text-shadow: 5px 5px 0 var(--yellow);
+    margin-bottom: 36px;
+    max-width: 760px;
+}
+
+/* ─── Lead box ──────────────────────────────────────────────────────────────── */
+.lead-box {
+    background: var(--white);
+    border: 3.5px solid var(--black);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    max-width: 900px;
+}
+
+.lead-box p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 22px);
+    line-height: 1.55;
+    color: var(--black);
+}
+
+/* ─── Body sections ─────────────────────────────────────────────────────────── */
+.body-section {
+    padding-left: var(--body-indent);
+    margin-bottom: 40px;
+    max-width: 900px;
+}
+
+.body-section p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 1.1vw, 17px);
+    line-height: 1.7;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.body-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* ─── Article image ─────────────────────────────────────────────────────────── */
+.article-image-wrap {
+    position: relative;
+    margin-bottom: 40px;
+    max-width: 960px;
+}
+
+.article-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 6px solid var(--white);
+    outline: 1.5px solid rgba(0,0,0,0.08);
+}
+
+.image-caption {
+    position: absolute;
+    bottom: -12px;
+    left: var(--body-indent);
+    right: 0;
+    background: var(--yellow);
+    border: 2.5px solid var(--black);
+    border-radius: 4px;
+    padding: 14px 20px;
+    max-width: 600px;
+}
+
+.image-caption p {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(14px, 1.1vw, 17px);
+    line-height: 1.4;
+    color: var(--black);
+    text-align: center;
+}
+
+/* ─── Pull quote ────────────────────────────────────────────────────────────── */
+.pull-quote-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding-left: var(--body-indent);
+    margin-bottom: 40px;
+    max-width: 900px;
+}
+
+.quote-icon-wrap {
+    flex-shrink: 0;
+    width: 80px;
+}
+
+.quote-icon {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.quote-content {
+    flex: 1;
+}
+
+.quote-content blockquote p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(17px, 1.5vw, 24px);
+    line-height: 1.45;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.quote-content cite {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(12px, 0.9vw, 15px);
+    color: var(--black);
+    display: block;
+}
+
+/* ─── Author card ───────────────────────────────────────────────────────────── */
+.author-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-left: var(--body-indent);
+    margin-bottom: 56px;
+    max-width: 640px;
+}
+
+.author-avatar-wrap {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--yellow);
+    outline: 2px solid var(--red);
+    outline-offset: 1px;
+}
+
+.author-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.author-info {
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--black);
+}
+
+.author-name {
+    font-weight: 700;
+}
+
+/* ─── CTA button ────────────────────────────────────────────────────────────── */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 36px;
+    background: var(--green);
+    border: 5px solid var(--black);
+    border-radius: 4px;
+    box-shadow: 14px 14px 0 0 var(--red);
+    margin-left: var(--body-indent);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 17px 17px 0 0 var(--red);
+}
+
+.cta-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 10px 10px 0 0 var(--red);
+}
+
+.cta-button span {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    font-size: clamp(40px, 4vw, 60px);
+    color: #D9D9D9;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.cta-icon {
+    display: block;
+    width: 48px;
+    height: auto;
+    filter: brightness(0.9);
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    :root {
+        --content-left: 32px;
+        --body-indent:  0px;
+    }
+
+    .top-nav {
+        font-size: 16px;
+        top: 20px;
+        right: calc(var(--sidebar) + 12px);
+    }
+
+    .headline {
+        font-size: 38px;
+    }
+
+    .pull-quote-section {
+        flex-direction: column;
+    }
+
+    .quote-icon-wrap {
+        width: 56px;
+    }
+
+    .cta-button {
+        margin-left: 0;
+    }
+}
